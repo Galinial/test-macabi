@@ -14,7 +14,7 @@ class CategoriesOverviewViewController: UIViewController {
     private var categoriesCardModels: [CategoryCardModel] = []
     private let categoriesViewModel = CategoriesViewModel()
     
-    private var selectedCategory: String?
+    private var selectedCategory: String? // we could have used a protocol/delegate, but this approach is simplier for this solution.
     
     private let segueToNextScreen = "goToCategoryDetails"
     
@@ -45,7 +45,6 @@ class CategoriesOverviewViewController: UIViewController {
     }
     
     private func setupTableView() {
-        
         self.categoriesTableView.delegate = self
         self.categoriesTableView.dataSource = self
         

@@ -9,11 +9,11 @@ import Combine
 import Foundation
 
 class CategoriesViewModel {
-    private var networkManager = NetworkManager()
+    private var dataManager = DataManager()
     private var categories: [Product] = []
 
     func fetchAndReciveData(completion: @escaping ([CategoryCardModel]?) -> Void) {
-        networkManager.fetchCategoriesData { [weak self] response in
+        dataManager.fetchCategoriesData { [weak self] response in
             guard let self = self else { return }
             if let response = response {
                 self.categories = response.products

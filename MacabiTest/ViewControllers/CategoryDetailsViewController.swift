@@ -18,9 +18,7 @@ class CategoryDetailsViewController: UIViewController {
     }
     
     private func setupTableView() {
-        
         categoryDetailsTableView.dataSource = self
-        
         categoryDetailsTableView.register(UINib(nibName: "ProductCardTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductCardIdentifier")
     }
 
