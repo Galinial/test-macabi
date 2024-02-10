@@ -24,27 +24,32 @@ class CategoriesViewModel {
             }
         }
     }
+    
+    //MARK: - CategoryOverview
 
     private func createAndReturnCategoryCardModels() -> [CategoryCardModel] {
-        var dictForValidateDuplicates: [String] = []
         var categoriesCardModelArray: [CategoryCardModel] = []
-        var numberOfpruductsForEachCategory: [String: Int] = [:]
-        var totalSumForPruductInStock: [String: Int] = [:]
+        
+        var duplicationValidationArr: [String] = [] // Each category should be represented only once.
+        var totalDistinctProductsForCategoryDict: [String: Int] = [:] // The total number of distinct products in the category.
+        var totalSumForPruductsCategoryInStockDict: [String: Int] = [:] // The total sum of all products in stock for that category.
 
         for category in categories {
-            numberOfpruductsForEachCategory[category.category, default: 0] += 1
-            totalSumForPruductInStock[category.category, default: 0] += category.stock
+            totalDistinctProductsForCategoryDict[category.category, default: 0] += 1
+            totalSumForPruductsCategoryInStockDict[category.category, default: 0] += category.stock
         }
 
         for category in categories {
-            if !dictForValidateDuplicates.contains(category.category) {
-                dictForValidateDuplicates.append(category.category)
-                let newModel = CategoryCardModel(categoryName: category.category, firstProductImageURL: category.thumbnail, numberOfPruductsForCategory: numberOfpruductsForEachCategory[category.category] ?? 0, sumOfAllProductsInStockForCategory: totalSumForPruductInStock[category.category] ?? 0)
+            if !duplicationValidationArr.contains(category.category) {
+                duplicationValidationArr.append(category.category)
+                let newModel = CategoryCardModel(categoryName: category.category, firstProductImageURL: category.thumbnail, numberOfPruductsForCategory: totalDistinctProductsForCategoryDict[category.category] ?? 0, sumOfAllProductsInStockForCategory: totalSumForPruductsCategoryInStockDict[category.category] ?? 0)
                 categoriesCardModelArray.append(newModel)
             }
         }
         return categoriesCardModelArray
     }
+    
+    //MARK: - CategoryDetails
     
     func getProductsForCategory(category: String) -> [ProductDetailsModel] {
         
