@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				3CB5B29C2B7535C900C94E33 /* Extensions */,
-				3CB5B2842B74E7DD00C94E33 /* NetworkManager */,
+				3CB5B2842B74E7DD00C94E33 /* DataManager */,
 				3CB5B28B2B74FC3100C94E33 /* ViewControllers */,
 				3CB5B27D2B74E40300C94E33 /* Views */,
 				3CB5B27C2B74E3F700C94E33 /* View Models */,
@@ -122,12 +122,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3CB5B2842B74E7DD00C94E33 /* NetworkManager */ = {
+		3CB5B2842B74E7DD00C94E33 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
 				3CB5B2852B74E80800C94E33 /* DataManager.swift */,
 			);
-			path = NetworkManager;
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		3CB5B28B2B74FC3100C94E33 /* ViewControllers */ = {
